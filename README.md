@@ -7,7 +7,7 @@ I'm going to show the steps for configure spark on k8s. Each cloud provider has 
 ## Step Zero: Prerequisites
 1 - You have a Kubernetes cluster installed and running.
 
-2 - You need to have the kubectl command line tool installed in you machine.
+2 - You need to have the kubectl command line tool installed in your machine.
 
 3 - Integrate the kubectl with kubernetes cluster.
 
@@ -45,3 +45,4 @@ $ kubectl create -f spark-ui-proxy-controller.yaml
  ```
  $ kubectl get svc spark-ui-proxy -o wide
  ```
+## Step Three: Start your Spark workers

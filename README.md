@@ -24,9 +24,13 @@ $ kubectl config set-context spark --namespace=spark-cluster --cluster=${CLUSTER
 $ kubectl config use-context spark
 ```
 ## Step Two: Start master service
-This service is for Spark cluster
+This service is for Spark cluster.
 ```
 kubectl create -f spark-master-controller.yaml
 
+```
+Create a logical service endpoint that Spark workers can use to access the master pod.
+```
+kubectl create -f spark-master-service.yaml
 ```
 

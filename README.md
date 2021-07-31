@@ -18,8 +18,14 @@ Create a storage class that references the mount target ID from file system that
 ```
 $ kubectl create -f storageclass.yaml
 ```
-
-
+Generate a storage pluging.
+```
+$ kubectl create -f pv.yaml
+```
+Create a object for request from storage resource to nodes.
+```
+$ kubectl create -f pvc.yaml
+```
 ## Step Two: Create namespace
 ```
 $ kubectl create -f namespace-spark-cluster.yaml
@@ -55,3 +61,4 @@ $ kubectl create -f spark-ui-proxy-controller.yaml
  $ kubectl get svc spark-ui-proxy -o wide
  ```
 ## Step Four: Start your Spark workers
+

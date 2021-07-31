@@ -54,11 +54,14 @@ $ kubectl create -f spark-ui-proxy-controller.yaml
 ```
  Create a Loadbalanced service for Spark Proxy.
  ```
- $ kubectl create -f spark-ui-proxy-service.yaml
+$ kubectl create -f spark-ui-proxy-service.yaml
  ```
  After creating the service, you should get a loadbalanced endpoint.
  ```
- $ kubectl get svc spark-ui-proxy -o wide
+$ kubectl get svc spark-ui-proxy -o wide
  ```
 ## Step Four: Start your Spark workers
-
+Create a replication controller that manages the worker pods.
+ ```
+$ kubectl create -f spark-worker-controller.yaml
+ ```

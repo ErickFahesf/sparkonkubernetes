@@ -33,4 +33,11 @@ Create a logical service endpoint that Spark workers can use to access the maste
 ```
 kubectl create -f spark-master-service.yaml
 ```
-
+Deploy the proxy controller.
+```
+kubectl create -f spark-ui-proxy-controller.yaml
+```
+ Create a Loadbalanced service for Spark Proxy.
+ ```
+ kubectl create -f spark-ui-proxy-service.yaml
+ ```

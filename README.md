@@ -65,3 +65,7 @@ Create a replication controller that manages the worker pods.
  ```
 $ kubectl create -f spark-worker-controller.yaml
  ```
+ Check to see if the workers are running.
+```
+$ kubectl get pods 
+```

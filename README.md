@@ -11,7 +11,16 @@ I'm going to show the steps for configure spark on k8s. Each cloud provider has 
 
 3 - Integrate the kubectl with kubernetes cluster.
 
-## Step One: Create namespace
+4 - Create a storage resource.
+
+## Step One: Integrate nodes with File Storage (Storage resource on OCI).
+Create a storage class that references the mount target ID from file system that you created. Consult the file storageclass.yaml
+```
+$ kubectl create -f storageclass.yaml
+```
+
+
+## Step Two: Create namespace
 ```
 $ kubectl create -f namespace-spark-cluster.yaml
 ```
@@ -23,7 +32,7 @@ $ CLUSTER_NAME=$(kubectl config view -o jsonpath='{.contexts[?(@.name == "'"${CU
 $ kubectl config set-context spark --namespace=spark-cluster --cluster=${CLUSTER_NAME} --user=${USER_NAME}
 $ kubectl config use-context spark
 ```
-## Step Two: Start master service
+## Step Three: Start master service
 This service is for Spark cluster.
 ```
 $ kubectl create -f spark-master-controller.yaml
@@ -45,4 +54,4 @@ $ kubectl create -f spark-ui-proxy-controller.yaml
  ```
  $ kubectl get svc spark-ui-proxy -o wide
  ```
-## Step Three: Start your Spark workers
+## Step Four: Start your Spark workers

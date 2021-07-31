@@ -12,3 +12,18 @@ I'm going to show the steps for configure spark on k8s. Each cloud provider has 
 3 - Integrate the kubectl with kubernetes cluster.
 
 ## Step One: Create namespace
+```
+$ kubectl create -f examples/staging/spark/namespace-spark-cluster.yaml
+```
+Create a new context to configure kubectl to work with our namespace.
+```
+$ CURRENT_CONTEXT=$(kubectl config view -o jsonpath='{.current-context}')
+$ USER_NAME=$(kubectl config view -o jsonpath='{.contexts[?(@.name == "'"${CURRENT_CONTEXT}"'")].context.user}')
+$ CLUSTER_NAME=$(kubectl config view -o jsonpath='{.contexts[?(@.name == "'"${CURRENT_CONTEXT}"'")].context.cluster}')
+$ kubectl config set-context spark --namespace=spark-cluster --cluster=${CLUSTER_NAME} --user=${USER_NAME}
+$ kubectl config use-context spark
+```
+## Step Two: Start master service
+```
+kubectl create -f spark-master-controller.yaml
+```

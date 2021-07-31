@@ -26,18 +26,22 @@ $ kubectl config use-context spark
 ## Step Two: Start master service
 This service is for Spark cluster.
 ```
-kubectl create -f spark-master-controller.yaml
+$ kubectl create -f spark-master-controller.yaml
 
 ```
 Create a logical service endpoint that Spark workers can use to access the master pod.
 ```
-kubectl create -f spark-master-service.yaml
+$ kubectl create -f spark-master-service.yaml
 ```
 Deploy the proxy controller.
 ```
-kubectl create -f spark-ui-proxy-controller.yaml
+$ kubectl create -f spark-ui-proxy-controller.yaml
 ```
  Create a Loadbalanced service for Spark Proxy.
  ```
- kubectl create -f spark-ui-proxy-service.yaml
+ $ kubectl create -f spark-ui-proxy-service.yaml
+ ```
+ After creating the service, you should get a loadbalanced endpoint.
+ ```
+ $ kubectl get svc spark-ui-proxy -o wide
  ```

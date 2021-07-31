@@ -13,7 +13,7 @@ I'm going to show the steps for configure spark on k8s. Each cloud provider has 
 
 ## Step One: Create namespace
 ```
-$ kubectl create -f examples/staging/spark/namespace-spark-cluster.yaml
+$ kubectl create -f namespace-spark-cluster.yaml
 ```
 Create a new context to configure kubectl to work with our namespace.
 ```

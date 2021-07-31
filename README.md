@@ -69,3 +69,4 @@ $ kubectl create -f spark-worker-controller.yaml
 ```
 $ kubectl get pods 
 ```
+Now, your cluster is configured.

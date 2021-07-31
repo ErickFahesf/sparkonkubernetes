@@ -24,6 +24,9 @@ $ kubectl config set-context spark --namespace=spark-cluster --cluster=${CLUSTER
 $ kubectl config use-context spark
 ```
 ## Step Two: Start master service
+This service is for Spark cluster
 ```
 kubectl create -f spark-master-controller.yaml
+
 ```
+
